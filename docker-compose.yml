@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  postgres:
+    image: debezium/postgres:11
+    shm_size: 256M
+    ports:
+      - 5432:5432
+    volumes:
+      - pg_auth_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+volumes:
+  pg_auth_data:
